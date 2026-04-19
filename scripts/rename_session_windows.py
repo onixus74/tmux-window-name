@@ -312,6 +312,9 @@ def get_program_if_dir(program_line: str, dir_programs: List[str]) -> Optional[s
         if p == program[0]:
             program[0] = p
             return ' '.join(program)
+        for word in program[1:]:
+            if word == p or word.endswith('/' + p):
+                return p
 
     return None
 
